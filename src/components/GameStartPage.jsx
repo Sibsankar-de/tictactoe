@@ -6,8 +6,8 @@ export const GamePlayerPage = () => {
     let player;
     if (localStorage.getItem('playerName') === null) {
         player = {
-            player1: '',
-            player2: '',
+            player1: 'player 1',
+            player2: 'player 2',
         }
     }
     else {
@@ -48,8 +48,8 @@ export const GameStartPage = () => {
     let player;
     if (localStorage.getItem('playerName') === null) {
         player = {
-            player1: '',
-            player2: '',
+            player1: 'player 1',
+            player2: 'player 2',
         }
     }
     else {
@@ -92,8 +92,8 @@ export const GameOverPage = () => {
     let player;
     if (localStorage.getItem('playerName') === null) {
         player = {
-            player1: '',
-            player2: '',
+            player1: 'player 1',
+            player2: 'player 1',
         }
     }
     else {
