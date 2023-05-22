@@ -1,0 +1,145 @@
+.tt-home-head {
+    font-size: 3.5em;
+    margin-top: 1.2em;
+    animation: headAnimation 1s ease infinite;
+}
+
+@keyframes headAnimation {
+    0% {
+        transform: scale(0.9);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0.9);
+    }
+}
+
+.tt-home-menu {
+    margin-top: 5em;
+    padding-left: 0;
+}
+
+.tt-home-menu-li {
+    list-style: none;
+    text-align: center;
+    margin-bottom: 0.6em;
+
+    & a {
+        text-decoration: none;
+        font-size: 1.8em;
+        font-weight: bold;
+        background: -webkit-linear-gradient(344deg, #959703, #a52505, #05037e 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: navOptAnimation 1s ease infinite;
+    }
+}
+
+@keyframes navOptAnimation {
+    0% {
+        background: -webkit-linear-gradient(344deg, #959703, #a52505, #05037e 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    50% {
+        background: -webkit-linear-gradient(344deg, #05037e, #959703, #a52505 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    100% {
+        background: -webkit-linear-gradient(344deg, #a52505, #05037e, #959703 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+
+
+.tt-player-name-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 6em;
+}
+
+.tt-player-name-form input {
+    margin-bottom: 2em;
+    padding: 0.5em 1em;
+    border: none;
+    box-shadow: 0px 2px 2px 0 #424141ba;
+    border-radius: 5px;
+    outline: none;
+    border-top: 1px solid #dddcdc85;
+    width: 15em;
+    font-size: 1.2em;
+}
+
+.tt-player-selection-box {
+    margin-top: 7em;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2em;
+
+    & span {
+        margin-bottom: 0.5em;
+        display: grid;
+        grid-auto-flow: column;
+        align-items: center;
+
+        & i {
+            margin-left: 1em;
+        }
+    }
+}
+
+.tt-win-player-show-box {
+    font-size: 1.5em;
+    margin-bottom: 0;
+    width: 7em;
+}
+
+.tt-win-time-box {
+    width: fit-content;
+    margin-left: 1em;
+    margin-bottom: 0;
+    font-size: 1.4em;
+    background: -webkit-linear-gradient(344deg, #959703, #a52505, #05037e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: navOptAnimation 1s ease infinite;
+    font-weight: bold;
+}
+
+
+
+
+@media only screen and (max-width: 320px) {
+    .tt-player-name-form input {
+        width: 88vw;
+    }
+}
+
+@media only screen and (max-device-height:400px){
+    .tt-home-head {
+        margin-top: 0em;
+    }
+    .tt-home-menu {
+        margin-top: 0.5em;
+    }
+
+    .tt-player-name-form {
+        margin-top: 1.5em;
+
+        & input{
+            margin-bottom: 1em;
+        }
+    }
+    .tt-player-selection-box {
+        margin-top: 1.5em;
+    }
+}

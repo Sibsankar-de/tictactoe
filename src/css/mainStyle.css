@@ -1,0 +1,397 @@
+@import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap');
+
+:root {
+    --tt-br: 1px solid #5a595952;
+    --tt-br-radious: 20px;
+    --tt-b-shadow: 0 0 8px 0px #767676cf;
+    --tt-padding: 1em;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* **********************************Utils Css ******************************** */
+
+
+.container {
+    width: 30em;
+    height: 40em;
+    border: var(--tt-br);
+    border-radius: var(--tt-br-radious);
+    position: fixed;
+    top: 3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: var(--tt-b-shadow);
+    padding: var(--tt-padding);
+    animation: containerAnimation 0.5s ease 1;
+}
+
+@keyframes containerAnimation {
+    0% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.list-item {
+    list-style: none;
+}
+
+.tt-icon-size {
+    font-size: 1.8em;
+}
+
+.tt-circle-color {
+    color: green;
+    border-color: green;
+}
+
+.tt-cross-color {
+    color: red;
+    border-color: red;
+}
+
+.tt-br-rignt {
+    border-right: var(--tt-br);
+}
+
+.tt-board-head-br-bottom {
+    position: fixed;
+    width: 10.5em;
+    justify-self: center;
+    border: 1px solid;
+    animation: playerBottomAnimation 0.4s ease 1;
+}
+
+@keyframes playerBottomAnimation {
+    0% {
+        transform: scaleX(0);
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+/* ******************************Project Css***************************** */
+
+.tt-game-heading {
+    background: -webkit-linear-gradient(344deg, #008cff, red, green 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 0.02em;
+    -webkit-text-stroke-color: #008cff;
+}
+
+.tt-game-box {
+    border: var(--tt-br);
+    border-radius: var(--tt-br-radious);
+    width: 25em;
+    padding: var(--tt-padding);
+    margin-top: 4em;
+}
+
+.tt-game-board-head {
+    display: grid;
+    grid-auto-flow: column;
+
+    & section {
+        display: grid;
+        align-items: end;
+        grid-auto-flow: column;
+
+        & span {
+            display: grid;
+            grid-auto-flow: column;
+            align-items: center;
+            margin-bottom: 0.5em;
+
+            & i {
+                font-size: 0.8em;
+                margin-left: 0.5em;
+            }
+        }
+
+    }
+}
+
+.tt-game-board-head h5 {
+    justify-self: center;
+    margin-bottom: 0;
+    width: 5em;
+    height: 1.2em;
+    overflow: hidden;
+    text-align: center;
+}
+
+.tt-game-board-box {
+    margin-top: 2em;
+    display: grid;
+}
+
+.tt-game-board-box-items {
+    justify-self: center;
+    display: grid;
+    width: 16em;
+    height: 16em;
+    align-items: center;
+}
+
+.tt-cut-stick {
+    height: 0.15em;
+    background-color: black;
+    position: fixed;
+    animation: stickAnimation 0.5s ease 1;
+}
+
+@keyframes stickAnimation {
+    0% {
+        opacity: 0.1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.stick-r {
+    width: 14em;
+    transform: translate(1em, 0);
+}
+
+.stick-c {
+    width: 14em;
+    transform: translate(1em, 0) rotate(90deg);
+}
+
+.stick-corn {
+    width: 18em;
+    transform: translate(-1em, 0) rotate(45deg);
+}
+
+.tt-game-board-box-row-set {
+    display: grid;
+    grid-auto-flow: column;
+
+    & li {
+        display: grid;
+    }
+}
+
+.tt-game-board-box-row-set li div {
+    border: var(--tt-br);
+    border-radius: 10px;
+    width: 4em;
+    height: 4em;
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 20px 0px #61606036;
+    cursor: pointer;
+}
+
+.tt-play-btn {
+    padding: 0.8em 3em;
+    margin-top: 1.3em;
+    border-radius: 30px;
+    color: white;
+    font-size: 1.3em;
+    background-image: linear-gradient(to bottom, #3a1de0f3 50%, #3a1de0f3, #3a1de0c7);
+    transition: background-image 1s;
+}
+
+.tt-play-btn:hover {
+    background-image: linear-gradient(to bottom, #3a1de0 50%, #3a1de0, #3a1de0de);
+    color: white;
+}
+
+.tt-game-over-box {
+    position: fixed;
+    width: 30em;
+    height: 40em;
+    background-color: #ccc9c9bf;
+    border-radius: 20px;
+    top: 3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    & img {
+        width: 160px;
+    }
+}
+
+.tt-game-over-box h1 {
+    font-family: 'Oleo Script', cursive;
+    background: -webkit-linear-gradient(344deg, #3a07c7, rgb(52, 3, 129), #3c0164 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 0.02em;
+    -webkit-text-stroke-color: black;
+    animation: gameoverAmimation 1s ease-in-out 1 forwards;
+}
+
+@keyframes gameoverAmimation {
+    0% {
+        transform: rotate(8deg) translate(-2em, 0);
+    }
+
+    45% {
+        transform: rotate(-6deg) translate(2em, 0);
+    }
+
+    75% {
+        transform: rotate(2deg) translate(-1em, 0);
+    }
+
+    100% {
+        transform: rotate(0deg) translate(0, 0);
+    }
+
+}
+
+.tt-g-over-img-anim {
+    transform-origin: top;
+    animation: gOverImg1Anim 1s ease infinite;
+}
+
+@keyframes gOverImg1Anim {
+    0% {
+        transform: rotate(-20deg);
+    }
+
+    50% {
+        transform: rotate(20deg);
+    }
+
+    100% {
+        transform: rotate(-20deg);
+    }
+}
+
+.tt-g-over-shake-anim {
+    animation: shakeAnim 1s ease infinite;
+}
+
+@keyframes shakeAnim {
+    0% {
+        transform: rotate(3deg);
+    }
+
+    30% {
+        transform: rotate(-3deg);
+    }
+
+    50% {
+        transform: rotate(2deg);
+    }
+
+    65% {
+        transform: rotate(-2deg);
+    }
+
+    75% {
+        transform: rotate(2deg);
+    }
+
+    85% {
+        transform: rotate(-2deg);
+    }
+
+    95% {
+        transform: rotate(1deg);
+    }
+
+    98% {
+        transform: rotate(-1deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+
+
+/* ******************************Responsive CSS starts from here******************************* */
+
+@media only screen and (max-width: 576px) {
+    .container {
+        box-shadow: none;
+        border: none;
+        padding: 0;
+
+    }
+
+    .tt-game-over-box {
+        height: 100vh;
+        top: 0;
+    }
+}
+
+@media only screen and (max-width: 487px) {
+    .container {
+        box-shadow: none;
+        width: 100vw;
+    }
+}
+
+@media only screen and (max-width: 411px) {
+    .container {
+        box-shadow: none;
+        width: 100vw;
+    }
+
+    .tt-game-box {
+        width: 95vw;
+    }
+
+    .tt-game-board-head h5 {
+        width: 25vw;
+    }
+
+    .tt-board-head-br-bottom {
+        width: calc((86vw - 2em)/2);
+    }
+}
+
+@media only screen and (max-device-height:400px){
+    .container{
+        position: absolute;
+        height: fit-content;
+        padding: 0;
+        padding-bottom: 1em;
+        top: 1em;
+        box-shadow: none;
+        border: none;
+    }
+
+    .tt-game-over-box {
+        height: 100vh;
+        width: 100vw;
+        top: 0;
+
+        & img{
+            width: 130px;
+        }
+    }
+
+    .tt-board-head-br-bottom {
+        position: absolute;
+    }
+    .tt-cut-stick{
+        position: absolute;
+    }
+}
