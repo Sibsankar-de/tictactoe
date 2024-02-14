@@ -1,19 +1,24 @@
 {
   "files": {
-    "main.css": "/tictactoe/static/css/main.b7b1707e.css",
-    "main.js": "/tictactoe/static/js/main.c6a60207.js",
+    "main.css": "/tictactoe/static/css/main.2d7eae21.css",
+    "main.js": "/tictactoe/static/js/main.0cb476a1.js",
     "static/js/787.c779557d.chunk.js": "/tictactoe/static/js/787.c779557d.chunk.js",
+    "static/media/remixicon.svg?t=1705244689813": "/tictactoe/static/media/remixicon.426742b01cbcdd986634.svg",
+    "static/media/remixicon.eot?t=1705244689813": "/tictactoe/static/media/remixicon.ff1ec9ee899cf84e3449.eot",
+    "static/media/remixicon.ttf?t=1705244689813": "/tictactoe/static/media/remixicon.f1ed85ba47411bc8629e.ttf",
+    "static/media/remixicon.woff?t=1705244689813": "/tictactoe/static/media/remixicon.85d5afadad2b2c04b2fb.woff",
     "static/media/bootstrap-icons.woff?": "/tictactoe/static/media/bootstrap-icons.4753c5ba57962b4d7bf8.woff",
+    "static/media/remixicon.woff2?t=1705244689813": "/tictactoe/static/media/remixicon.7124d0d7809bef5b73ab.woff2",
     "static/media/bootstrap-icons.woff2?": "/tictactoe/static/media/bootstrap-icons.6d63d0501e5ed7b79dab.woff2",
     "static/media/celebration2.svg": "/tictactoe/static/media/celebration2.23ed6bdfd49e866f00394b2976bd2b90.svg",
     "static/media/celebration.svg": "/tictactoe/static/media/celebration.48c98649064dcfb35dbe25b1544a0576.svg",
     "index.html": "/tictactoe/index.html",
-    "main.b7b1707e.css.map": "/tictactoe/static/css/main.b7b1707e.css.map",
-    "main.c6a60207.js.map": "/tictactoe/static/js/main.c6a60207.js.map",
+    "main.2d7eae21.css.map": "/tictactoe/static/css/main.2d7eae21.css.map",
+    "main.0cb476a1.js.map": "/tictactoe/static/js/main.0cb476a1.js.map",
     "787.c779557d.chunk.js.map": "/tictactoe/static/js/787.c779557d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b7b1707e.css",
-    "static/js/main.c6a60207.js"
+    "static/css/main.2d7eae21.css",
+    "static/js/main.0cb476a1.js"
   ]
 }
