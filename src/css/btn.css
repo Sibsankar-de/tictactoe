@@ -1,0 +1,7 @@
+.tt-btn-box{
+    transition: scale 0.3s;
+}
+
+.tt-btn-box-click{
+    scale: 0.9;
+}

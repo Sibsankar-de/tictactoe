@@ -1,6 +1,8 @@
 import './App.css';
 import './css/mainStyle.css'
 import './css/secondStyle.css'
+import './css/btn.css'
+import 'remixicon/fonts/remixicon.css'
 import { GameBoard } from './components/GameBoard';
 import { Route, Routes } from 'react-router-dom';
 import { GameOverPage, GamePlayerPage, GameStartPage } from './components/GameStartPage';

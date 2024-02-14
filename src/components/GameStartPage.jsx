@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useRef } from 'react';
+import { Button } from './modules/button-component';
 
 export const GamePlayerPage = () => {
     let player;
@@ -38,7 +39,7 @@ export const GamePlayerPage = () => {
                     <input type="text" name="" ref={player2Ref} id="player2" placeholder='Player2 name' onChange={(e) => setPlayerName({ ...playerName, player2: e.target.value })} />
                 </form>
             </div>
-            <div><button className="btn tt-play-btn" onClick={clickHandler}>Continue</button></div>
+            <div><Button className="btn tt-play-btn" onClick={clickHandler}>Continue</Button></div>
         </div>
     )
 }
@@ -68,7 +69,7 @@ export const GameStartPage = () => {
 
     const clickHandler = () => {
         sessionStorage.setItem('matchStart', true);
-        setTimeout(()=>{navigate('/game-run'); window.location.reload()}, 500);
+        setTimeout(() => { navigate('/game-run'); window.location.reload() }, 500);
     }
 
     return (
@@ -82,7 +83,7 @@ export const GameStartPage = () => {
                     <p className='tt-win-player-show-box'>{player.player2}</p>:<i className="bi bi-circle tt-circle-color tt-icon-size" />
                 </span>
             </div>
-            <div><button className="btn tt-play-btn" onClick={clickHandler}>Start</button></div>
+            <div><Button className="btn tt-play-btn" onClick={clickHandler}>Start</Button></div>
 
         </div>
     )
@@ -100,11 +101,11 @@ export const GameOverPage = () => {
         player = JSON.parse(localStorage.getItem('playerName'));
     }
 
-    let winTime;
-    if (sessionStorage.getItem('winTime') === null) {
-        winTime = { player1: 0, player2: 0 };
+    let playerData;
+    if (sessionStorage.getItem('playerData') === null) {
+        playerData = { player1: { name: player.player1, winTime: 0 }, player2: { name: player.player2, winTime: 0 } };
     }
-    else winTime = JSON.parse(sessionStorage.getItem('winTime'));
+    else playerData = JSON.parse(sessionStorage.getItem('playerData'));
 
     const navigate = useNavigate();
 
@@ -113,14 +114,14 @@ export const GameOverPage = () => {
             <h1 className='tt-game-heading'>Tic Tac Toe</h1>
             <div className='tt-player-selection-box'>
                 <span>
-                    <p className='tt-win-player-show-box'>{player.player1}</p>: <p className='tt-win-time-box'>{winTime.player1}</p>
+                    <p className='tt-win-player-show-box'>{playerData.player1.name}</p>: <p className='tt-win-time-box'>{playerData.player1.winTime}</p>
                 </span>
                 <span>
-                    <p className='tt-win-player-show-box'>{player.player2}</p>: <p className='tt-win-time-box'>{winTime.player2}</p>
+                    <p className='tt-win-player-show-box'>{playerData.player2.name}</p>: <p className='tt-win-time-box'>{playerData.player2.winTime}</p>
                 </span>
             </div>
-            <div><button className="btn tt-play-btn" onClick={()=>navigate('/game-run')}>Rematch</button></div>
-            <div className='mt-5'><h4 onClick={()=>navigate('/')} style={{cursor: 'pointer'}}>Back to Home</h4></div>
+            <div><Button className="btn tt-play-btn" onClick={() => navigate('/game-run')}>Rematch</Button></div>
+            <div className='mt-5'><Button className='btn' onClick={() => navigate('/')} style={{ cursor: 'pointer' }}><h4 >Back to Home</h4></Button></div>
 
         </div>
     )

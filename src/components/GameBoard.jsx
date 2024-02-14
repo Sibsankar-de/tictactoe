@@ -5,6 +5,7 @@ import celebSvg from '../svg/celebration.svg'
 import celebSvg2 from '../svg/celebration2.svg'
 import { GameBoardCut } from './GameBoardCut';
 import { useNavigate } from 'react-router-dom';
+import { Button } from './modules/button-component';
 
 
 const arangerAI = (list) => {
@@ -54,11 +55,11 @@ export const GameBoard = () => {
         player = JSON.parse(localStorage.getItem('playerName'));
     }
 
-    let winTime;
-    if (sessionStorage.getItem('winTime') === null) {
-        winTime = { player1: 0, player2: 0 };
+    let playerData;
+    if (sessionStorage.getItem('playerData') === null) {
+        playerData = { player1: { name: player.player1, winTime: 0 }, player2: { name: player.player2, winTime: 0 } };
     }
-    else winTime = JSON.parse(sessionStorage.getItem('winTime'));
+    else playerData = JSON.parse(sessionStorage.getItem('playerData'));
 
     let matchStart;
     if (sessionStorage.getItem('matchStart') === null) {
@@ -96,7 +97,10 @@ export const GameBoard = () => {
     useEffect(() => {
         if (clickCount === 10) {
             setTimeout(() => setGameOver(true), 700);
-            setTimeout(() => navigate('/game-over'), 4000);
+            setTimeout(() => {
+                navigate('/game-over')
+                sessionStorage.setItem('playerData', JSON.stringify({ player1: { name: playerData.player2.name, winTime: Number(playerData.player2.winTime) }, player2: { name: playerData.player1.name, winTime: Number(playerData.player1.winTime) } }));
+            }, 4000);
         }
     })
 
@@ -108,23 +112,27 @@ export const GameBoard = () => {
         setPlayer2List([...player2List, index])
     }
 
-    const checkPossibilities = async(list, changeObj) => {
+    const checkPossibilities = async (list, changeObj) => {
         for (let i in arangerAI(list)) {
             if (arangerAI(player1List).includes(arangerAI(list)[i])) {
                 setCutOut(changeObj);
-                setGameWinner(player.player1)
-                sessionStorage.setItem('winTime', JSON.stringify({ ...winTime, player1: Number(winTime.player1) + 1 }));
+                setGameWinner(playerData.player1.name);
                 setTimeout(() => setGameOver(true), 800);
-                setTimeout(() => navigate('/game-over'), 4000)
+                setTimeout(() => {
+                    navigate('/game-over')
+                    sessionStorage.setItem('playerData', JSON.stringify({ player1: { name: playerData.player2.name, winTime: Number(playerData.player2.winTime) }, player2: { name: playerData.player1.name, winTime: Number(playerData.player1.winTime) + 1 } }));
+                }, 4000);
                 sessionStorage.setItem('matchStart', false);
 
             }
             else if (arangerAI(player2List).includes(arangerAI(list)[i])) {
                 setCutOut(changeObj);
-                setGameWinner(player.player2)
-                sessionStorage.setItem('winTime', JSON.stringify({ ...winTime, player2: Number(winTime.player2) + 1 }));
+                setGameWinner(playerData.player2.name);
                 setTimeout(() => setGameOver(true), 800);
-                setTimeout(() => navigate('/game-over'), 4000)
+                setTimeout(() => {
+                    navigate('/game-over')
+                    sessionStorage.setItem('playerData', JSON.stringify({ player1: { name: playerData.player2.name, winTime: Number(playerData.player2.winTime) + 1 }, player2: { name: playerData.player1.name, winTime: Number(playerData.player1.winTime) } }));
+                }, 4000);
                 sessionStorage.setItem('matchStart', false);
             }
         }
@@ -149,14 +157,14 @@ export const GameBoard = () => {
                     <span className="tt-game-board-head">
                         <section className='tt-br-rignt'>
                             <span>
-                                <h5>{player.player1}</h5>
+                                <h5>{playerData.player1.name}</h5>
                                 <i className="bi bi-x-lg tt-cross-color" />
                             </span>
                             {player1 && <div className='tt-board-head-br-bottom tt-cross-color'></div>}
                         </section>
                         <section>
                             <span>
-                                <h5>{player.player2}</h5>
+                                <h5>{playerData.player2.name}</h5>
                                 <i className="bi bi-circle tt-circle-color" />
                             </span>
                             {player2 && <div className='tt-board-head-br-bottom tt-circle-color'></div>}
