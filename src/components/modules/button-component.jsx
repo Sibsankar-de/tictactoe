@@ -4,7 +4,9 @@ export const Button = (props) => {
     const [clickStart, setClickStart] = useState(false)
     const clickEvent = {
         onMouseDown: () => setClickStart(true),
-        onMouseUp: () => setClickStart(false)
+        onTouchStart: () => setClickStart(true),
+        onMouseUp: () => setClickStart(false),
+        onTouchEnd: () => setClickStart(false)
     }
     return (
         <div className={`tt-btn-box ${clickStart && 'tt-btn-box-click'}`} {...clickEvent}>
